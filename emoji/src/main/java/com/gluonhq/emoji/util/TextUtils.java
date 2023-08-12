@@ -185,9 +185,23 @@ public class TextUtils {
         // 127744 <= ch && ch <= 129784 0x1F300-0x1FAF8, excluding the skin tone
         // 126980 <= ch && ch <= 127569 0x1F004-0x1F251
         // 8205 < ch && ch <= 12953 0x200D < ch && ch <= 0x3299
+
+
+        //*************************
+        /*
+        Edit (TR): Remove characters in 0x200E - 0x3299 from the emoji range.
+        This is to enable the unicode to be treated as regular characters.
+        For reasons I do not (yet) understand, it still seems possible to insert
+        the emoji characters from the emoji popup.
+        */
         return  (0x1F300 <= ch && ch <= 0x1FAF8 && !isSkinTone(ch)) ||
                 (0x1F004 <= ch && ch <= 0x1F251) ||
-                (0x200D < ch && ch <= 0x3299);
+                (ch == 0x200D) || (ch == 0x20E3);
+
+        //        return  (0x1F300 <= ch && ch <= 0x1FAF8 && !isSkinTone(ch)) ||
+        //                (0x1F004 <= ch && ch <= 0x1F251) ||
+        //                (0x200D < ch && ch <= 0x3299);
+        //*********************
     }
 
     private static boolean isPersonEmoji(int ch) {
