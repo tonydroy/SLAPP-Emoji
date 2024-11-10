@@ -194,13 +194,18 @@ public class TextUtils {
         For reasons I do not (yet) understand, it still seems possible to insert
         the emoji characters from the emoji popup.
         */
+
+
         return  (0x1F300 <= ch && ch <= 0x1FAF8 && !isSkinTone(ch)) ||
                 (0x1F004 <= ch && ch <= 0x1F251) ||
                 (ch == 0x200D) || (ch == 0x20E3);
 
-        //        return  (0x1F300 <= ch && ch <= 0x1FAF8 && !isSkinTone(ch)) ||
-        //                (0x1F004 <= ch && ch <= 0x1F251) ||
-        //                (0x200D < ch && ch <= 0x3299);
+         /*
+                return  (0x1F300 <= ch && ch <= 0x1FAF8 && !isSkinTone(ch)) ||
+                        (0x1F004 <= ch && ch <= 0x1F251) ||
+                        (0x200D < ch && ch <= 0x3299);
+
+          */
         //*********************
     }
 
